@@ -25,10 +25,22 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read.
 
 1. Explain the differences between `.map`, `.reduce` and `.filter` and describe a use case for each. 
+    `.map()` returns a new array of elements & call back each element, index, and returns each one. 
+    USE CASE: We could map over huge data sets and extrapolate data for a new subset of data, and even use different call back methods. Ex. pulling basic data of cars (name, model, year, mpg) from a larger set to create an array to be used for data representation.
+
+    `.reduce()` returns a new array of elements & takes a callback, which is a reducer funstion. The reducer takes a previous value and a next value (accumulator & currentValue).
+    USE CASE: using .reduce() we could easily find out and display averages or medians of scores, sizes, populations, for display or reporting purposes. 
+
+    `.filter()` also returns an array of elements & will callback each element at each index and reutrns each in turn. It takes a callback that runs a 'truth' test. If true, it willr eturn the element(s), or else - ignores it. This is great for filtering out an array by a specific condition.
+    USE CASE: using .filter() we could filter through an array of students specifically delinquent on their tuition by filtering for last payment date and display them grouped together in a specific color. 
 
 2. Explain the difference between a callback and a higher order function.
+    `A higher order function`: a function that takes in other functions as arguements and may return arguements.
+    `Callback functions`: The functions passed into another function (such as a higher order function).
+
 
 3. Explain what a closure is.
+    `closure` is essentially the scope at which a function can access other functions or variables. Lexical scope is important to understand in terms of creating closure and defining a an inner and outer scope.
 
 4. Describe the four principles of the 'this' keyword.
 
