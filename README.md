@@ -43,9 +43,13 @@ Edit this document to include your answers after each question. Make sure to lea
     `closure` is essentially the scope at which a function can access other functions or variables. Lexical scope is important to understand in terms of creating closure and defining a an inner and outer scope.
 
 4. Describe the four principles of the 'this' keyword.
+    `P1 Window or Global Object Binding`: When 'this' is placed in the global scope the value will be the window/console.
+    `P2 Implicit Binding`: Depending on the object passed into a function, 'this' can take on different contexts. It depends on the object/function it is attached to.
+    `P3 New Binding`: With constructor functions, 'this' is referring to the particular instance of the object that is created/returned by the constructor function. It almost behaves as a place hodler waiting to be filled by a context that it'll be passed by the constructor function.
+    `P4 Explicit Binding`: using JavaScript's .call() & .apply() methods, the value of 'this' is going to be explicitly defined - essentially a way to override a the variable of a new object or function.
 
 5. Why do we need super() in an extended class?
-
+    `super()` is used in the constructor function of an extended class in order to allow or activate the parent functions that were passed through by the extension.
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
 ## Instructions
