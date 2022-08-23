@@ -125,7 +125,7 @@ const zooAnimals = [
   }
   
   
-  // 🦁🦁🦁 Callbacks 🦁🦁🦁  
+   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
   Use the higher-order function called consume to do the following:
     1. Receive 3 parameters: a, b and cb. The first two parameters (a and b) can take any argument (we can pass any value as an argument) and the last parameter (cb) accepts a callback
@@ -134,49 +134,49 @@ const zooAnimals = [
     💡 NOTE: The tests for 'consume' will pass if it is created correctly and also after you correctly complete the functions 'add' and 'greeting' below in Step 2.
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
-  }
- 
+    function consume(a, b, cb){
+      return cb(a, b);
+    }
+   
+    
+    // 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁
   
-  // 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁
-
- /*  Use add to do the following:
- 1. Receive two numbers as an argument that are passed in from its first and second parameters
- 2. Return the sum of those numbers
- */
-
-function add(/*Your Code Here */){
-    /*Your Code Here*/
-  }
-
-
-/* Use multiply to do the following:
-1. Receive two numbers as an argument that are passed in from its first and second parameters
-2. Return the product of those numbers
-*/
-
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
-  }
-
-
- /* Use greeting to do the following:
-1. Receive two strings (a first name and last name) as an argument that are passed in from its first and second parameters
-2. Return "Hello {first-name} {last-name}, nice to meet you!"
-💡 NOTE: The string returned must match the format above or the test will not pass!
-*/
-
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
-  }
+   /*  Use add to do the following:
+   1. Receive two numbers as an argument that are passed in from its first and second parameters
+   2. Return the sum of those numbers
+   */
+  
+  function add(num1, num2){
+      return num1 + num2;
+    }
   
   
-// 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
-// ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(consume(2, 2, add)); // 4
-// console.log(consume(10, 16, multiply)); // 160
-// console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+  /* Use multiply to do the following:
+  1. Receive two numbers as an argument that are passed in from its first and second parameters
+  2. Return the product of those numbers
+  */
+  
+  function multiply(num1, num2){
+     return num1 * num2;
+    }
+  
+  
+   /* Use greeting to do the following:
+  1. Receive two strings (a first name and last name) as an argument that are passed in from its first and second parameters
+  2. Return "Hello {first-name} {last-name}, nice to meet you!"
+  💡 NOTE: The string returned must match the format above or the test will not pass!
+  */
+  
+  function greeting(firstName, lastName){
+     return `Hello ${firstName} ${lastName}, nice to meet you!`
+    }
+    
+    
+  // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
+  // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
+  console.log(consume(2, 2, add)); // 4
+  console.log(consume(10, 16, multiply)); // 160
+  console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 
 
@@ -193,8 +193,17 @@ function greeting(/*Your Code Here */){
 - Instances of CuboidMaker should initialize `length`, `width` and `height` properties
 */
 
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker({length, width, height}){
+  this.length = length;
+  this.width = width;
+  this.height = height;
+}
+CuboidMaker.prototype.volume = function() {
+  return this.length * this.width * this.height; 
+}
+
+CuboidMaker.prototype.surfaceArea = function () {
+  return 2 * (this.length * this.width + this.length * this.height + this.width * this.height);  
 }
 
 
@@ -221,7 +230,6 @@ function CuboidMaker(/*Your Code Here */){
 
 
 
-
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
 // console.log(cuboid.volume()); // 100
@@ -231,10 +239,33 @@ function CuboidMaker(/*Your Code Here */){
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //Using CuboidMakerTwo, take your prototypes from above and refactor into class syntax. Then, create an object called cuboidTwo that uses the new keyword to use our CuboidMakerTwo class.
  
+
+// function CuboidMaker({length, width, height}){
+//   this.length = length;
+//   this.width = width;
+//   this.height = height;
+// }
+// CuboidMaker.prototype.volume = function() {
+//   return this.length * this.width * this.height; 
+// }
+
+// CuboidMaker.prototype.surfaceArea = function () {
+//   return 2 * (this.length * this.width + this.length * this.height + this.width * this.height); 
+// }
+
 class CuboidMakerTwo{
-
+  constructor (length, width, height) {
+    this.length = length;
+    this.width = width;
+    this.height = height;
+  }
+  volume() {
+  return this.length * this.width * this.height;
 }
-
+surfaceArea () {
+     return 2 * (this.length * this.width + this.length * this.height + this.width * this.height); 
+}
+}
 
 
 
