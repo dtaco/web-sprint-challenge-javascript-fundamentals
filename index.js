@@ -253,8 +253,8 @@ CuboidMaker.prototype.surfaceArea = function () {
 //   return 2 * (this.length * this.width + this.length * this.height + this.width * this.height); 
 // }
 
-class CuboidMakerTwo{
-  constructor (length, width, height) {
+class CuboidMakerTwo {
+  constructor ({length, width, height}) {
     this.length = length;
     this.width = width;
     this.height = height;
